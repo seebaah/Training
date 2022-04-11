@@ -1,0 +1,42 @@
+create database product;
+
+CREATE TABLE tblProdName (
+    Prod_id int NOT NULL AUTO_INCREMENT,
+    Prod_Name varchar(50),
+    Prod_Value int,
+    PRIMARY KEY(Prod_id)
+);
+CREATE TABLE tblProdSt (
+St_id int NOT NULL AUTO_INCREMENT,
+St_Prodid int NOT NULL,
+St_Variation varchar (50),
+St_Qty int,
+PRIMARY KEY(St_id),
+FOREIGN KEY (St_Prodid) REFERENCES tblProdName (Prod_id)
+);
+
+INSERT INTO tblProdName (Prod_Name) 
+VALUES ('Casual Shirt'),('Formal shirt'),('Tshirt') ,('Pants'),('Suits' ) ;
+
+INSERT INTO tblProdSt (St_Prodid,St_Variation,St_Qty)
+VALUES (1,'small',55),
+ (1,'medium',45),
+ (1,'large',60),
+ (2,'small',56),
+ (2,'medium',80),
+ (2,'large',55),
+ (3,'small',46),
+ (3,'medium',48),
+ (3,'large',47),
+ (4,'large',60) ;
+ SELECT SUM(St_Qty) FROM tblProdSt;
+ 
+ SELECT Prod_id,Prod_Name,SUM(St_Qty) FROM tblProdSt join tblProdName on Prod_id=St_Prodid
+ WHERE St_Prodid=2;
+ 
+SELECT Prod_id,Prod_Name,SUM(St_Qty) FROM tblProdSt join tblProdName on Prod_id=St_Prodid
+WHERE St_Prodid=3 AND St_Variation='small' ;
+
+UPDATE tblProdSt
+SET St_Qty=60
+WHERE St_Prodid  = 3 AND St_Variation = 'medium';
