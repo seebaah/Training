@@ -1,0 +1,87 @@
+[
+ {"product": {"tblProdName":
+  {
+    "id": 1,
+    "product name": "casual shirt"
+  },
+  {
+    "id": 2,
+    "product name": "formal shirt"
+  },
+  {
+    "id": 3,
+    "product name": "t shirt"
+  },
+  {
+    "id": 4,
+    "product name": "pants"
+  },
+  {
+    "id": 5,
+    "product name": "suit"
+  }}
+]
+
+
+[
+ {"tblProdSt": {
+    "id": 1,
+    "productid": 1,
+    "variation": "Small",
+    "stock qty": 55
+  },
+  {
+    "id": 2,
+    "productid": 1,
+    "variation": "Medium",
+    "stock qty": 45
+  },
+  {
+    "id": 3,
+    "productid": 1,
+    "variation": "Large",
+    "stock qty": 60
+  },
+  {
+    "id": 4,
+    "productid": 2,
+    "variation": "Small",
+    "stock qty": 56
+  },
+  {
+    "id": 5,
+    "productid": 2,
+    "variation": "Medium",
+    "stock qty": 80
+  },
+  {
+    "id": 6,
+    "productid": 2,
+    "variation": "Large",
+    "stock qty": 55
+  },
+  {
+    "id": 7,
+    "productid": 3,
+    "variation": "Small",
+    "stock qty": 46
+  },
+  {
+    "id": 8,
+    "productid": 3,
+    "variation": "Medium",
+    "stock qty": 48
+  },
+  {
+    "id": 9,
+    "productid": 3,
+    "variation": "Large",
+    "stock qty": 47
+  },
+  {
+    "id": 10,
+    "productid": 4,
+    "variation": "large",
+    "stock qty": 60
+  }
+}}] 

@@ -1,0 +1,47 @@
+
+create database koppe ;
+/**********************************************************/
+CREATE TABLE tblEmp (
+    id int NOT NULL auto_increment,
+    txtName varchar(50),
+    txtPh int,
+   txtLoc int,
+   txtAddr varchar(50),
+   PRIMARY KEY(id)
+);
+/**********************************************************/
+INSERT INTO tblEmp (txtName, txtPh, txtLoc, txtAddr) 
+VALUES ('A', 99, 6820, 'AAA'),
+ ('B', 98, 6821, 'BB'),
+ ('C', 96, 6820, 'CCC'),
+ ('D', 93, 6822, 'DDD'),
+ ('E', 92, 6820, 'EEE'),
+ ('F', 91, 6820, 'FFF'),
+ ('G', 90, 6820, 'GGG');
+/**********************************************************/
+-- Q. Select all employee address from employee table
+
+SELECT txtAddr
+FROM tblEmp;
+/**********************************************************/
+-- Q.Display all rows for which emp number greater than 4
+SELECT id
+FROM tblEmp
+WHERE id>4;
+/**********************************************************/
+-- Q.Display names of employees with ID 4 & 5
+SELECT txtName
+FROM tblEmp
+WHERE id=(4,5);
+/**********************************************************/
+-- Q.Display all employees from location 6820
+SELECT txtName
+FROM tblemp
+WHERE txtLoc=6820;
+/**********************************************************/
+-- Q.Update phone number of EMp G from 90 to 100
+
+UPDATE tblEmp
+SET txtPh=100
+WHERE txtName='G';
+/**********************************************************/

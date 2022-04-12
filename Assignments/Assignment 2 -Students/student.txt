@@ -1,0 +1,42 @@
+CREATE TABLE tblStud (
+    id int NOT NULL auto_increment,
+    txtName varchar(50) NOT NULL,
+    txtGen varchar(50) NOT NULL,
+    txtDis varchar(50),
+    PRIMARY KEY (id)
+);
+/********************************************************************************************/
+
+CREATE TABLE mark (
+    mid int NOT NULL auto_increment,
+    txtSub varchar(50) NOT NULL,
+    txtmrk int,
+   refid int Not Null,
+    PRIMARY KEY (mid) , 
+    foreign key (refid) references tblStud (id)
+);
+/**********************************************************************************************/
+select * from tblStud s join mark m on s.id = m.mid ;
+select * from tblStud s left join mark m on s.id = m.mid ;
+/***********************************************************************************************/
+
+-- Q.passed subject,studentname -passmark 15
+
+select m.txtSub,s.txtName from tblStud s left join mark m on s.id = m.mid where m.txtmrk > 15 ;
+/*************************************************************************************************/
+
+-- Q.absent students all details
+
+select s.txtName from tblStud s left join mark m on s.id = m.mid where s.txtName is null ;
+/****************************************************************************************************/
+-- Q.display student name & mark with subject maths
+
+select s.txtName,m.txtmrk from tblStud s left join mark m on s.id = m.mid where m.txtSub = 'maths' ;
+/*****************************************************************************************************/
+
+-- Q.update student id>3 english marks should be made 45 and district idukki
+
+UPDATE tblStud s left join mark m on s.id = m.mid 
+SET m.txtmrk= 45, s.txtDis='idukki'
+WHERE s.id > 3 AND m.txtSub= 'english';
+/****************************************************************************************************/
