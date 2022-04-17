@@ -1,0 +1,53 @@
+<-- Q.Insert two rows of data to 'studentdetail'  table.			
+INSERT INTO tblstuddet (Stud_Name, Stud_District) 
+VALUES ('Shyam', 'IDK' ) ,
+ ('Tejas',  'MLP' )
+;
+/********************************************************************/
+
+-- Q. Fetch data from the 'studentdetail' table.(Display student names from WYND)
+SELECT Stud_Name from tblstuddet WHERE Stud_District='WYND';
+/************************************************************************/
+
+-- Q.Update column 'Marks' with 40 where id = 8 in table 'Mark'	
+UPDATE tblmark
+SET Mark=40
+WHERE Mrk_id=8;		
+/*************************************************************************/
+-- Q.	Alter table 'studentdetail' table with DateOfBirth date;	
+
+ALTER TABLE tblstuddet
+ADD DateOfBirth DATE ;			
+/**************************************************************************/
+
+-- Q.Sorting the table Mark based on column Marks				
+
+SELECT Mark
+FROM tblmark
+ORDER BY Mark DESC;
+/*****************************************************************************/
+-- Q.Find the mininimum of column Marks in Mark table by using min() function				
+
+SELECT MIN(Mark)
+FROM tblmark;
+/*************************************************************************************/
+
+-- Q.Find the maximum of column Marks in Mark table by using max() function				
+SELECT MAX(Mark)
+FROM tblmark;
+/*********************************************************************************************/
+-- Q. Create a index for marks column field in Mark table	
+			
+ CREATE INDEX index1 ON tblmark (Mark);
+ /**************************************************************************************/
+ 
+ -- Q.Use inner join with table Student Details and Mark. 				
+ 
+ SELECT stud_id
+FROM tblstuddet
+INNER JOIN tblmark
+ON tblstuddet.stud_id = tblmark.Mrk_Stud_id;
+/************************************************************************/
+-- Q.Delete data from 'studentdetail' table WHERE id=5		
+
+DELETE FROM tblstuddet WHERE Stud_Name='Babu';	

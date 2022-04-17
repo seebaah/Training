@@ -1,0 +1,23 @@
+<doc>
+    <html>
+        <head>
+<script>
+    function checkifleapyear(){
+        var year;
+        year=document.getElementById("year").value;
+        // if( (0 == year % 4) && (0 != year % 100) || (0 == year % 400) )
+        if((0 == year % 4) && (0!= year%100) || (0==year%400))
+        {alert(year+ " is a leap year")
+    }
+        else {
+            alert(year+" is not a leap year")
+    }
+    }
+</script>
+        </head>
+        <head>
+            <input type="text" id="year">
+            <button onclick="checkifleapyear()">CHECK</button>
+        </head>
+    </html>
+</doc>

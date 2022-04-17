@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text">
+        <p>This is a cat</p>
+        <button>CLICK</button>
+
+    </body>
+</html>

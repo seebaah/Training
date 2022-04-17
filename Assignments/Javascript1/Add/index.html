@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function toadd(){
+                var a=parseInt(document.getElementById("addition").value);
+                var b=parseInt(document.getElementById("addition1").value);
+                var c=a+b;
+                document.getElementById("display").value=c;
+            
+            }
+            
+        
+         </script>
+
+    </head>
+    <body>
+        <label>Number 1</label>
+        <input type="text" id="addition"><br/><br/>
+        <label>Number 2</label>
+        <input type="text" id="addition1">
+        <button onclick="toadd()">ADD</button><br/><br/>
+        <p>RESULT</p>
+        <input type="text" id="display">
+    </body>
+</html>

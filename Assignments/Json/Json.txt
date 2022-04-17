@@ -1,0 +1,32 @@
+[
+  {"job":{"tblEmp":
+  {
+    "Emp_userid": "Rirani",
+    "Emp_jobtitle": "Developer",
+    "Emp_firstname": "Romin",
+    "Emp_lastname": "Irani",
+    "Emp_fullname": "Romin Irani",
+    "Emp_code":"E1",
+    "Emp_region":"CA",
+    "Emp_phone":408-1234567,
+    "Emp_email":"romin.k.irani@gmail.com"
+  },
+  {"Emp_userid": "Nirani",
+    "Emp_jobtitle": "Developer",
+    "Emp_firstname": "Neil",
+    "Emp_lastname": "Irani",
+    "Emp_fullname": "Neil Irani",
+    "Emp_code":"E2",
+    "Emp_region":"CA",
+    "Emp_phone":408-1111111,
+    "Emp_email":"neilirani@gmail.com"}
+  {"Emp_userid": "Tom",
+    "Emp_jobtitle": "Program Developer",
+    "Emp_firstname": "Tom",
+    "Emp_lastname": "Hanks",
+    "Emp_fullname": "Tom Hanks",
+    "Emp_code":"E3",
+    "Emp_region":"CA",
+    "Emp_phone":408-2222222,
+    "Emp_email":"tomhanks@gmail.com"}
+}}]

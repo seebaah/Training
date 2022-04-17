@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>JavaScript Dates</h2>
+
+<p id="demo"></p>
+
+<script>
+let ms = Date.now();
+document.getElementById("demo").innerHTML = ms;
+</script>
+
+</body>
+</html>
