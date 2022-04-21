@@ -10,7 +10,7 @@ app.post('/addition',function(req,res){
 })
   app.post('/numId',function(req,res){
     console.log(req,res);
-    var a=parseInt(req.body.numId[0].num3);
+    var a=parseInt(req.body.numId[0].numthree);
   
   res.send("Result="+a);
 
