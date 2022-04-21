@@ -1,0 +1,44 @@
+create database employees;
+create table tblEmp (
+Emp_empid int not null auto_increment ,
+Emp_firstname varchar(50),
+Emp_lastname varchar(50),
+Emp_email varchar(50),
+Emp_age int,
+Emp_jobtitle varchar(50),
+Emp_DOJ date,
+primary key(Emp_empid)
+);
+
+
+INSERT INTO `employees`.`tblemp`(`Emp_empid`,`Emp_firstname`,`Emp_lastname`,`Emp_email`,`Emp_age`,`Emp_jobtitle`,`Emp_DOJ`)
+VALUES(101,'Diane','William','dwilliam@gmail.com','40','Sale manager',11/01/2011),
+(102,'Murphy','Jain','mjain@gmail.com','50','Sale manager',11/02/2011),
+(103,'Jeff','Loui','jloui@gmail.com','1','Sale rep',11/03/2011),
+(104,'Bondur','Steve','bsteve@gmail.com','35','Sale rep',11/04/2011),
+(105,'Bow','Gerad','bgerad@gmail.com','36','Sale rep',11/05/2011),
+(106,'Jennings','Pamela','jpamela@gmail.com','33','Sale rep',11/06/2011),
+(107,'Firelli','Julie','fjulie@gmail.com','35','Sale rep',11/07/2011),
+(108,'Peterson','George','pgeorge@gmail.com','34','Marketing',11/08/2011),
+(109,'Hemandez','Lesilie','hleslie@gmail.com','1','Marketing',11/09/2011),
+(1010,'Tseng','Mary','tmary@gmail.com','30','Marketing',11/10/2011);
+/*********************************************************************/
+-- Q.select data with limit three rows by using order bykeyword desc from employee table
+SELECT *
+FROM tblEmp
+ORDER BY`Emp_empid`,`Emp_firstname`,`Emp_lastname`,`Emp_email`,`Emp_age`,`Emp_jobtitle`,`Emp_DOJ`   DESC
+LIMIT 3;
+/*********************************************/
+-- Q.find the data from age above 35 by using switch cases
+SELECT Emp_empid,Emp_firstname,Emp_lastname,Emp_jobtitle,Emp_age,
+CASE
+    WHEN Emp_age > 35 THEN "The age is greater than 35"
+
+END
+FROM tblEmp;
+
+/*******************************************************/
+-- Q.write a query to find data based on null values of age column
+SELECT Emp_empid,Emp_age FROM tblEmp WHERE Emp_age='1' ;
+ 
+/*****************************************************************/
