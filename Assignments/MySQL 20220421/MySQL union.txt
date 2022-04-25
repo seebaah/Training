@@ -1,0 +1,56 @@
+create database Unio;
+/***************************************************************************************************************/
+create table tblCusto(
+Custo_custid int not null auto_increment,
+Custo_custname varchar(50),
+Custo_contact int,
+Custo_city varchar(50),
+Custo_country varchar(50),
+primary key (Custo_custid)
+);
+ALTER TABLE tblCusto
+MODIFY COLUMN Custo_contact varchar(50);
+
+ALTER TABLE tblCusto RENAME COLUMN Custo_city TO city;
+ALTER TABLE tblCusto RENAME COLUMN Custo_country TO country;
+/***************************************************************************************************************/
+
+create table tblSuppl(
+Suppl_suppid int not null auto_increment,
+Suppl_suppname varchar(50),
+Suppl_supppostal int,
+Suppl_suppcity varchar(50),
+Suppl_suppcountry varchar(50),
+primary key(Suppl_suppid)
+);
+ALTER TABLE tblSuppl  RENAME COLUMN Suppl_suppcity TO city;
+ALTER TABLE tblSuppl RENAME COLUMN Suppl_suppcountry TO country;
+/***************************************************************************************************************/
+
+INSERT INTO `unio`.`tblcusto`(`Custo_custid`,`Custo_custname`,`Custo_contact`,`Custo_city`,`Custo_country`)
+VALUES(1001,'Ajay','9845123652','Bangalore','India'),
+(1002,'Alex','9645123652','New York','United States'),
+(1003,'Maria','8943654987','Franffurt','Germany'),
+(1004,'Eric','8943654987','Tokyo','Japan'),
+(1005,'Antony','7907854897','Barcelona','Spain'),
+(1006,'Jordi','7553215654','Oviedo','Spain')
+;
+/***************************************************************************************************************/
+INSERT INTO `unio`.`tblsuppl`(`Suppl_suppid`,`Suppl_suppname`,`Suppl_supppostal`,`Suppl_suppcity`,`Suppl_suppcountry`)
+VALUES(1,'New Orleans Cajun Delights',48104,'Tokyo','Japan'),
+(2,'Grandma Kellys Homestead',3307,'Frankfurt','Germany'),
+(3,'Pavlova,Ltd',60439,'Istanbul','Turkey'),
+(4,'Speciality Biscuits,Ltd',10785,'New York','United States'),
+(5,'Refrescos Americanas LTDA',48100,'Bangalore','India'),
+(6,'Norske Meierier',24478,'Melbourne','Australia')
+;
+/***************************************************************************************************************/
+-- Q.MySQL statement returns German city(only distinct values) from both customer and supplier table
+
+SELECT city,country  FROM tblcusto
+WHERE country='Germany'
+UNION 
+SELECT city, country FROM tblsuppl
+WHERE country ='Germany'
+ORDER BY city ;
+/***************************************************************************************************************/

@@ -1,3 +1,6 @@
+
+create database studmark
+/******************************************************************************/
 <-- Q.Insert two rows of data to 'studentdetail'  table.			
 INSERT INTO tblstuddet (Stud_Name, Stud_District) 
 VALUES ('Shyam', 'IDK' ) ,
@@ -39,6 +42,9 @@ FROM tblmark;
 -- Q. Create a index for marks column field in Mark table	
 			
  CREATE INDEX index1 ON tblmark (Mark);
+
+CREATE UNIQUE INDEX idx_mrk
+ON tblmark (Mark);
  /**************************************************************************************/
  
  -- Q.Use inner join with table Student Details and Mark. 				

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script>
+function rs(){
+    var a="";
+    var a=document.getElementById("revstring").value;
+    var l=a.length;
+    var n="";
+    for (i = l - 1; i >= 0; i--) 
+    {
+       
+        n=n+a[i];
+        
+    }
+document.getElementById("A").innerHTML=n;
+ }
+//  alert('hi');
+</script>
+    </head>
+    <body>
+        <label>Enter:</label>
+        <input type="text" id="revstring">
+        <button onclick="rs()">RESULT</button>
+        <p id="A"></p>
+
+    </body>
+</html>

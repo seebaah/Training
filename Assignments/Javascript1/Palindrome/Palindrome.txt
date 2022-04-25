@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function checkpal() {
+            var a = document.getElementById("A1").value;
+            var len = str.length;
+            var mid = Math.floor(len / 2);
+            var res="";
+            alert('hi');
+        
+        
+            for (i = 0; i < mid; i++) {
+                if (str[i] !== str[len - 1 - i]) {
+                 return res= false;
+                }
+          
+            }
+
+         return res=true;
+            document.getElementById("B1").innerHTML = res;
+
+        }
+
+
+        
+    </script>
+
+</head>
+
+<body>
+    <label>Enter String</label>
+    <input type="text" id="A1"><br/><br/>
+    <button onclick="checkpal()">CLICK HERE</button>
+    <p id="B1"></p>
+</body>
+
+</html>
