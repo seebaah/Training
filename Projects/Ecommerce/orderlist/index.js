@@ -19,7 +19,7 @@ app.post('/addition', function (req, res)
     res.send("Result=" + c);
 
 })
-ap.post('/Orderlist', function (req, res) 
+app.post('/Orderlist', function (req, res) 
 {
     con.connect(function (err) 
     {
