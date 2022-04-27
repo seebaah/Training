@@ -1,0 +1,147 @@
+create database project;
+/**********************************************************************************************/
+create table tblUserRoles(
+id int NOT NULL AUTO_INCREMENT,
+txtUserRole VARCHAR(50) NOT NULL,
+PRIMARY KEY(id)
+);
+/**********************************************************************************************/
+create table tblUsers( 
+id int NOT NULL AUTO_INCREMENT,
+txtUsername VARCHAR(50) NOT NULL,
+txtPassword VARCHAR(50) NOT NULL,
+refUserRole int NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (refUserRole) REFERENCES tblUserRoles(id)
+);
+/**********************************************************************************************/
+create table tblProjects( 
+id int NOT NULL AUTO_INCREMENT,
+txtName VARCHAR(50) NOT NULL,
+txtType VARCHAR(50),
+refProjectOwner INT NOT NULL,
+dtEstStartDate DATETIME,
+dtEstEndDate DATETIME,
+PRIMARY KEY(id),
+FOREIGN KEY(refProjectOwner) REFERENCES tblUsers(id)
+);
+/**********************************************************************************************/
+create table tblEpic(
+id int NOT NULL AUTO_INCREMENT,
+refProjectId INT NOT NULL,
+refAssignee INT,
+txtTitle VARCHAR(50) NOT NULL,
+txtDescription VARCHAR(150),
+txtStatus VARCHAR(10) NOT NULL,
+dtEstStartDate DATETIME,
+dtEstEndDate DATETIME,
+dtActEndDate DATETIME,
+PRIMARY KEY(id),
+FOREIGN KEY(refAssignee) REFERENCES tblUsers(id),
+FOREIGN KEY(refProjectId) REFERENCES tblProjects(id)
+);
+ALTER TABLE tblEpic
+ADD  dtActStartDate DATETIME; 
+/**********************************************************************************************/
+create table tblSprints( 
+id int NOT NULL AUTO_INCREMENT,
+txtSprintName VARCHAR(50) NOT NULL,
+dtEstStartDate DATETIME,
+dtEstEndDate DATETIME,
+dtActStartDate DATETIME,
+dtActEndDate DATETIME,
+PRIMARY KEY(id)
+);
+
+/**********************************************************************************************/
+create table tblTasks( 
+id int NOT NULL AUTO_INCREMENT,
+refEpicid INT NOT NULL,
+refAssignee INT,
+txtTitle VARCHAR(50) NOT NULL,
+txtDescription VARCHAR(250),
+txtStatus VARCHAR(10) NOT NULL,
+refSprintid INT,
+dtEstStartDate DATETIME,
+dtEstEndDate DATETIME,
+dtActStartDate DATETIME,
+dtActEndDate DATETIME,
+PRIMARY KEY(id),
+FOREIGN KEY(refAssignee) REFERENCES tblUsers(id),
+FOREIGN KEY(refEpicid) REFERENCES tblEpic(id),
+FOREIGN KEY(refSprintid) REFERENCES tblSprints (id)
+);
+
+/**********************************************************************************************/
+create table tblLogs( 
+id int NOT NULL AUTO_INCREMENT,
+refTask INT NOT NULL,
+txtStatus VARCHAR(10) NOT NULL,
+refUser INT NOT NULL,
+dtLoggedOn DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (refTask) REFERENCES tblTasks(id),
+FOREIGN KEY (refUser) REFERENCES tblUsers(id)
+);
+
+/**********************************************************************************************/
+INSERT INTO `project`.`tbluserroles`(`txtUserRole`)
+VALUES('Manager'),
+('Sr,Manager'),
+('Management Trainee'),
+('Asst.Manager'),
+('DGM');
+/**********************************************************************************************/
+INSERT INTO `project`.`tblusers`(`txtUsername`,`txtPassword`,`refUserRole`)
+VALUES
+('Sam','sam@',1),
+('Lily','lily@',2),
+('Rose','rose@',4),
+('Scarlette','scarlette@',5),
+('John','john@',5)
+;
+/**********************************************************************************************/
+
+
+
+
+INSERT INTO `project`.`tblprojects`(`txtName`,`txtType`,`refProjectOwner`,`dtEstStartDate`,`dtEstEndDate`)
+VALUES('Apollo','Health',1,'2022-04-27','2022-05-27'),
+('Logbook','Finance',2,'2022-04-28','2022-05-28'),
+('Robochef','Home',4,'2022-04-29','2022-05-29'),
+('MadMatrix','Space',5,'2022-04-30','2022-05-30'),
+('AppMonster','School',5,'2022-04-26','2022-05-26')
+;
+/***************************************************************************************************/
+
+INSERT INTO `project`.`tblepic`(`refProjectId`,`refAssignee`,`txtTitle`,`txtDescription`,`txtStatus`,`dtEstStartDate`,`dtEstEndDate`,`dtActStartDate`,`dtActEndDate`)
+VALUES(1,2,'crap','i am cat','todo','2022-04-30','2022-05-30','2022-04-27','2022-05-27'),
+(2,2,'doll','i am good','inprogress','2022-04-29','2022-05-29','2022-04-28','2022-05-28'),
+(3,4,'buffallo','i am nice','inprogress','2022-04-30','2022-05-31','2022-04-29','2022-05-29'),
+(4,5,'cow','i am bad','review','2022-04-30','2022-05-31','2022-05-01','2022-05-30'),
+(5,5,'koppe','i am well','inprogress','2022-05-01','2022-05-31','2022-04-26','2022-05-26');
+
+/***************************************************************************************************/
+
+INSERT INTO `project`.`tblsprints`(`txtSprintName`,`dtEstStartDate`,`dtEstEndDate`,`dtActStartDate`,`dtActEndDate`)
+VALUES('abc','2022-05-01','2022-06-02','2022-05-03','2022-06-04'),
+('def','2022-05-03','2022-06-04','2022-05-05','2022-06-04'),
+('ghi','2022-05-05','2022-06-10','2022-05-12','2022-06-13'),
+('jkl','2022-05-07','2022-06-05','2022-05-09','2022-06-10'),
+('mno','2022-05-11','2022-06-12','2022-05-13','2022-06-14');
+/****************************************************************************************************/
+INSERT INTO `project`.`tbltasks`(`refEpicid`,`refAssignee`,`txtTitle`,`txtDescription`,`txtStatus`,`refSprintid`,`dtEstStartDate`,`dtEstEndDate`,`dtActStartDate`,`dtActEndDate`)
+VALUES(1,2,'pqr','there is good','todo','1','2022-05-03','2022-06-05','2022-05-04','2022-06-06'),
+(2,2,'stu','there is sunshine','inprogress','2','2022-05-05','2022-06-07','2022-05-06','2022-06-05'),
+(3,4,'vwx','there is sunset','inprogress','2','2022-05-07','2022-06-14','2022-05-13','2022-06-17'),
+(4,5,'yza','there is moon','review','3','2022-05-06','2022-06-11','2022-05-12','2022-06-13'),
+(5,5,'zas','we are good','todo','5','2022-05-14','2022-06-15','2022-05-14','2022-06-15');
+
+/****************************************************************************************************/
+
+INSERT INTO `project`.`tbllogs`(`refTask`,`txtStatus`,`refUser`,`dtLoggedOn`)
+VALUES(1,'todo',1,'2022-05-04'),
+(2,'todo',2,'2022-05-05'),
+(3,'inprogress',3,'2022-05-06'),
+(4,'inprogress',4,'2022-05-07'),
+(5,'inprogress',5,'2022-05-08');
