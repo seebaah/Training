@@ -1,0 +1,590 @@
+Login 
+
+User Validation
+
+
+Request1
+{"un":4,"username":"Sam"}
+
+Response1:
+user exists!
+
+
+Request2:{"un":4,"username":"See"}
+
+Response2:
+user doesnt exist!
+/*************************************************************************************************************************************************/
+/*************************************************************************************************************************************************/
+Board
+
+Userfecth
+
+
+Request
+{"RefUserRole":5
+}
+
+Response
+
+{
+        "id": 6,
+        "txtUsername": "seal"
+    },
+    {
+        "id": 7,
+        "txtUsername": "seal"
+    }
+]
+
+
+User Task Fetch
+
+Request
+{"id":4}
+
+Response:
+
+[
+    {
+        "txtTitle": "yza",
+        "txtStatus": "review"
+    }
+]
+
+
+/*************************************************************************************************************************************************/
+/*************************************************************************************************************************************************/
+Project
+Fetch Project
+
+Request
+{"refProjectOwner":5}
+Response
+
+[
+    {
+        "txtName": "PQR",
+        "txtType": "!@#$",
+        "refProjectOwner": 5,
+        "dtEstStartDate": "2022-04-24T18:30:00.000Z"
+    },
+    {
+        "txtName": "PQR",
+        "txtType": "!@#$",
+        "refProjectOwner": 5,
+        "dtEstStartDate": "2022-04-24T18:30:00.000Z"
+    },
+    {
+        "txtName": "PQR",
+        "txtType": "!@#$",
+        "refProjectOwner": 5,
+        "dtEstStartDate": "2022-04-24T18:30:00.000Z"
+    }
+]
+/*************************************************************************************************************************************************/
+Add Project
+Project Insert
+
+
+Request
+{}
+
+Response
+
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 8,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+Fetch Manager
+
+Request:
+{"id":1,"name":"PQR"}
+
+Response:
+[
+    {
+        "id": 4,
+        "refProjectOwner": 5
+    },
+    {
+        "id": 5,
+        "refProjectOwner": 5
+    },
+    {
+        "id": 7,
+        "refProjectOwner": 5
+    }
+]
+
+
+/*************************************************************************************************************************************************/
+Edit Project
+
+
+
+Project Update
+
+
+Request
+
+
+Response
+
+{
+    "fieldCount": 0,
+    "affectedRows": 3,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "(Rows matched: 3  Changed: 0  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+/*************************************************************************************************************************************************/
+/*************************************************************************************************************************************************/
+
+
+Epic
+
+Fetch Epic List
+
+
+Request:
+{}
+
+Response:
+[
+    {
+        "id": 1,
+        "txtTitle": "crap",
+        "txtStatus": "todo"
+    },
+    {
+        "id": 2,
+        "txtTitle": "doll",
+        "txtStatus": "review"
+    },
+    {
+        "id": 3,
+        "txtTitle": "comb",
+        "txtStatus": "inprogress"
+    },
+    {
+        "id": 4,
+        "txtTitle": "cow",
+        "txtStatus": "review"
+    },
+    {
+        "id": 5,
+        "txtTitle": "koppe",
+        "txtStatus": "inprogress"
+    },
+    {
+        "id": 6,
+        "txtTitle": "happy",
+        "txtStatus": "inprogress"
+    },
+    {
+        "id": 7,
+        "txtTitle": "sunshine",
+        "txtStatus": "review"
+    }
+]
+/*************************************************************************************************************************************************/
+Add Epic
+User Fetch
+
+Request:
+{"id":1,"usertype":5}
+
+Response:
+[
+    {
+        "id": 4,
+        "txtUsername": "Scarlette"
+    },
+    {
+        "id": 5,
+        "txtUsername": "John"
+    }
+]
+
+
+Epic Insert
+
+Request
+
+Response:
+
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 7,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+Project Fetch
+
+
+
+Request:
+{"id":1,"proown":4}
+
+Response:
+[
+    {
+        "id": 3,
+        "txtName": "Robochef"
+    },
+    {
+        "id": 6,
+        "txtName": "SAP"
+    },
+    {
+        "id": 8,
+        "txtName": "SOP"
+    }
+]
+/*************************************************************************************************************************************************/
+Edit Epic
+Fetch Single Epic
+
+
+Request:
+{"id":1,"eid":7}
+
+Reponse:
+[
+    {
+        "refProjectId": 4,
+        "txtTitle": "sunshine",
+        "txtStatus": "review"
+    }
+]
+
+Epic Update
+
+Request:
+{}
+
+Response:
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+/*************************************************************************************************************************************************/
+/*************************************************************************************************************************************************/
+
+
+Task
+Fetch Task
+
+Request{}
+Response:
+[
+    {
+        "id": 1,
+        "txtTitle": "pqr"
+    },
+    {
+        "id": 2,
+        "txtTitle": "stu"
+    },
+    {
+        "id": 3,
+        "txtTitle": "vwx"
+    },
+    {
+        "id": 4,
+        "txtTitle": "yza"
+    },
+    {
+        "id": 5,
+        "txtTitle": "corner"
+    },
+    {
+        "id": 6,
+        "txtTitle": "corner"
+    },
+    {
+        "id": 7,
+        "txtTitle": "att"
+    }
+]
+/*************************************************************************************************************************************************/
+Add Task
+
+Insert Task
+
+Request
+
+Response:
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 7,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+Fetch Epic
+
+
+Request
+{}
+
+Response:
+
+[
+    {
+        "id": 1,
+        "txtName": "Apollo",
+        "txtTitle1": "crap",
+        "txtTitle": "pqr",
+        "txtStatus": "complete"
+    },
+    {
+        "id": 2,
+        "txtName": "Logbook",
+        "txtTitle1": "doll",
+        "txtTitle": "stu",
+        "txtStatus": "complete"
+    },
+    {
+        "id": 3,
+        "txtName": "Robochef",
+        "txtTitle1": "comb",
+        "txtTitle": "vwx",
+        "txtStatus": "complete"
+    },
+    {
+        "id": 4,
+        "txtName": "PQR",
+        "txtTitle1": "cow",
+        "txtTitle": "yza",
+        "txtStatus": "review"
+    },
+    {
+        "id": 5,
+        "txtName": "PQR",
+        "txtTitle1": "koppe",
+        "txtTitle": "corner",
+        "txtStatus": "complete"
+    },
+    {
+        "id": 6,
+        "txtName": "SAP",
+        "txtTitle1": "happy",
+        "txtTitle": "corner",
+        "txtStatus": "review"
+    },
+    {
+        "id": 7,
+        "txtName": "PQR",
+        "txtTitle1": "sunshine",
+        "txtTitle": "att",
+        "txtStatus": "complete"
+    }
+]
+
+Fetch Sprint
+
+
+Request:
+{"s.id":3}
+
+Response:
+
+[
+    {
+        "txtSprintName": "ghi",
+        "txtStatus": "complete",
+        "dtActStartDate": "2022-05-11T18:30:00.000Z",
+        "dtActEndDate": "2022-06-12T18:30:00.000Z"
+    }
+]
+
+
+
+
+/*************************************************************************************************************************************************/
+Edit Task
+Update Task
+
+
+Request:{}
+
+Response:
+{
+    "fieldCount": 0,
+    "affectedRows": 2,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "(Rows matched: 2  Changed: 0  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+
+/*************************************************************************************************************************************************/
+/*************************************************************************************************************************************************/
+Sprint
+Fetch Sprint List
+
+
+Request:{"id":1}
+
+Response:
+[
+    {
+        "txtSprintName": "abc"
+    }
+]
+
+/*************************************************************************************************************************************************/
+Add Sprint
+Insert Sprint
+
+Request:
+{}
+Response:
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 11,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+Sprintwise Task Fetch
+
+
+Request:{"s.id":6}
+
+Response:
+[
+    {
+        "id": 6,
+        "txtSprintName": "sort",
+        "txtTitle": "corner"
+    }
+]
+
+
+/*************************************************************************************************************************************************/
+Edit Sprint
+Update Sprint
+
+
+Request:{}
+
+Response:
+
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 0
+}
+/*************************************************************************************************************************************************/
+/*************************************************************************************************************************************************/
+User
+Fetch User
+
+
+Request:
+{"id":4}
+
+Response:
+[
+    {
+        "txtUsername": "Scarlette",
+        "txtPassword": "scarlette@",
+        "RefUserRole": 5
+    }
+]
+/*************************************************************************************************************************************************/
+Add User
+Insert User
+
+Request:
+{}
+
+Response:
+
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 7,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+Fetch User Role
+
+
+Request:
+{"id":4}
+Response:
+[
+    {
+        "txtUserRole": "Asst.Manager"
+    }
+]
+
+/*************************************************************************************************************************************************/
+Edit User
+ 
+Request
+{}
+
+Response
+{
+    "fieldCount": 0,
+    "affectedRows": 3,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "(Rows matched: 3  Changed: 0  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+
+/********************************************************************************************************************************************************/
+/********************************************************************************************************************************************************/
+

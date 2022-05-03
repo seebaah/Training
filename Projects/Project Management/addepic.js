@@ -19,13 +19,15 @@ app.post('/addition', function (req, res)
     res.send("Result=" + c);
 
 })
-app.post('/Uservalidate', function (req, res) 
+
+
+
+app.post('/Insertepic', function (req, res) 
 {
     con.connect(function (err) 
     {
-
-        if (err) throw err;
-        var a="SELECT refUserRole FROM project.tblusers WHERE txtUsername='Lily' AND txtPassword='lily@';";
+       if (err) throw err;
+        var a="INSERT INTO project.tblepic (id,refProjectId,refAssignee,txtTitle,txtStatus) values(7,4,2,'sunshine','review');;"
         con.query(a, function (err, result) 
         {
             if (err) throw err;
@@ -34,8 +36,6 @@ app.post('/Uservalidate', function (req, res)
         });
     });
 })
-
-
 
 
 
