@@ -35,7 +35,7 @@ app.post('/UserTaskfetch', function (req, res)
        
 
         if (err) throw err;
-        var a="SELECT txtTitle,txtStatus FROM project.tbltasks where id=4;"
+        var a="SELECT u.id,u.txtUserName,t.txtTitle,t.txtStatus FROM project.tblusers u, project.tbltasks t WHERE u.id=t.id and u.id=6"
         con.query(a, function (err, result) 
         {
             if (err) throw err;

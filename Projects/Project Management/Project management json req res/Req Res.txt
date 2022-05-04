@@ -41,13 +41,14 @@ Response
 User Task Fetch
 
 Request
-{"id":4}
+{"u.id":6}
 
 Response:
-
 [
     {
-        "txtTitle": "yza",
+        "id": 6,
+        "txtUserName": "seal",
+        "txtTitle": "corner",
         "txtStatus": "review"
     }
 ]
