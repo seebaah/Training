@@ -1,0 +1,343 @@
+SIGNUP
+
+
+API for Countryfetch
+
+Request
+ 
+{}
+
+API:Select
+
+Response
+
+
+[
+  {
+    "id": 1,
+    "txtCountryName": "India"
+  },
+  {
+    "id": 2,
+    "txtCountryName": "Japan"
+}
+  {
+    "id":3,
+    "txtCountryName:"USA"
+
+}
+]
+
+/**************************************************************************************************************************/
+
+API for Statefetch
+
+Request
+
+{"cid":1,"countryid":3}
+
+API:Select
+
+
+Response
+
+        "id": 1,
+        "txtStateName": "Kerala"
+    },
+    {
+        "id": 2,
+        "txtStateName": "Tamil Nadu"
+    },
+    {
+        "id": 3,
+        "txtStateName": "Karnataka"
+    },
+    {
+        "id": 4,
+        "txtStateName": "Kerala"
+    },
+    {
+        "id": 5,
+        "txtStateName": "Tamil Nadu"
+    },
+    {
+        "id": 6,
+        "txtStateName": "Karnataka"
+    }
+]
+
+
+/**********************************************************************************************************************************/
+API for Userinsert
+
+Request
+
+
+API:Insert
+
+Response
+
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 9,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+
+/*******************************************************************************************************************************/
+/*******************************************************************************************************************************/
+
+LOGIN
+
+API for UserValidate
+
+Request 1: 
+value present in table
+
+{"username":"sam","password":"ssss@"}
+
+API:Select
+
+Response
+
+[
+    {
+        "id": 3,
+        "txtUsername": "sam",
+        "txtPassword": "ssss@"
+    },
+    {
+        "id": 6,
+        "txtUsername": "sam",
+        "txtPassword": "ssss@"
+    },
+    {
+        "id": 7,
+        "txtUsername": "sam",
+        "txtPassword": "ssss@"
+    },
+    {
+        "id": 8,
+        "txtUsername": "sam",
+        "txtPassword": "ssss@"
+    },
+    {
+        "id": 9,
+        "txtUsername": "sam",
+        "txtPassword": "ssss@"
+    },
+    {
+        "id": 12,
+        "txtUsername": "sam",
+        "txtPassword": "ssss@"
+    }
+]
+/********************************************************************************************************************************/
+
+Request 2:
+
+value not present in table
+
+{"username":"s","password":"p"}
+
+Response
+
+[]
+
+/************************************************************************************************************************************/
+/*******************************************************************************************************************************/
+
+   PRODUCTLIST
+API for product fetch
+
+Request:
+
+{"id":"NULL","txtProdName":"NULL"} 
+
+API: select
+
+Response:
+
+ []  
+
+/**********************************************************************************************************************************************/
+/*******************************************************************************************************************************/
+ORDERLIST
+API for order list
+
+Request
+
+
+API:select
+
+Response:
+
+[
+    {
+        "id": 1,
+        "txtOrderNo": "20",
+        "txtOrderAmount": "5000",
+        "dtCreatedOn": "2020-02-11T18:30:00.000Z",
+        "dtUpdatedOn": "2020-03-12T18:30:00.000Z"
+    },
+    {
+        "id": 2,
+        "txtOrderNo": "30",
+        "txtOrderAmount": "7000",
+        "dtCreatedOn": "2020-03-12T18:30:00.000Z",
+        "dtUpdatedOn": "2020-04-14T18:30:00.000Z"
+    },
+    {
+        "id": 3,
+        "txtOrderNo": "50",
+        "txtOrderAmount": "8000",
+        "dtCreatedOn": "2020-06-01T18:30:00.000Z",
+        "dtUpdatedOn": "2020-06-02T18:30:00.000Z"
+    }
+]
+
+/*********************************************************************************************************************************************/
+/*******************************************************************************************************************************/
+
+ADD PRODUCT
+API for fetch product
+Request
+
+API:insert
+
+Response:
+
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 5,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
+}
+/******************************************************************************************************************************************************/
+/*******************************************************************************************************************************/
+
+
+EDIT PRODUCT
+API for fetch product
+
+Request:
+{
+  "refProdCategory": 1
+}
+
+API:select
+
+Response:
+
+[
+    {
+        "txtProdName": "ssss",
+        "txtProdPrice": "5000",
+        "refProdCategory": 1
+    },
+    {
+        "txtProdName": "ssss",
+        "txtProdPrice": "5000",
+        "refProdCategory": 1
+    }
+]
+
+/********************************************************************************************************************************************************/
+
+
+API for update
+
+Request:
+
+API:update
+Response:
+{
+    "fieldCount": 0,
+    "affectedRows": 2,
+    "insertId": 0,
+    "serverStatus": 34,
+    "warningCount": 0,
+    "message": "(Rows matched: 2  Changed: 0  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 0
+}
+/*********************************************************************************************************************/
+/*******************************************************************************************************************************/
+
+Edit PROFILE
+API for fetch user
+
+Request:
+
+{
+  "txtUserType": "B"
+}
+
+API: select
+
+Response:
+
+[
+    {
+        "id": 4,
+        "txtUsername": "Sti",
+        "txtPassword": null,
+        "txtFirstName": "Roni",
+        "txtLastName": "Stick"
+    },
+    {
+        "id": 5,
+        "txtUsername": "Broo",
+        "txtPassword": null,
+        "txtFirstName": "Kitty",
+        "txtLastName": "Broom"
+    },
+    {
+        "id": 6,
+        "txtUsername": "Mem",
+        "txtPassword": "ssss@",
+        "txtFirstName": "Caroline",
+        "txtLastName": "Me"
+    },
+    {
+        "id": 7,
+        "txtUsername": "Your",
+        "txtPassword": "ssss@",
+        "txtFirstName": "John",
+        "txtLastName": "You"
+    }
+]
+
+
+
+API for Update users
+Request:
+{
+  "txtUsername": "startz",
+  "txtUserType": "B"
+}
+
+API:Uodate
+
+Response:
+{
+    "fieldCount": 0,
+    "affectedRows": 4,
+    "insertId": 0,
+    "serverStatus": 34,
+    "warningCount": 0,
+    "message": "(Rows matched: 4  Changed: 4  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 4
+}
+
+/*******************************************************************************************************************************/
+/*******************************************************************************************************************************/
