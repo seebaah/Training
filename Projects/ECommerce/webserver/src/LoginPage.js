@@ -1,4 +1,5 @@
 import "./style.css";
+import axios from 'axios';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,9 +9,27 @@ function LoginPage() {
   const navigate = useNavigate();
   function handleClick(e){
       e.preventDefault();
-      let req='{["username":username,"password":password]}';
-      let url="http://localhost:5050/Uservalidate"
-      let 
+      var req={"username":username,"password":password};
+      var url="localhost:8000/Uservalidate"
+      var header={};
+  }
+  axios
+      .post(url, request, header)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.length > 0) {
+          setErrorMessage("Success");
+          navigate('/dashboard')
+        } else {
+          setErrorMessage("Error in Username Or Password");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  const newClick=()=>{
+    navigate('/signup')
   }
   function newclick(e) {
     e.preventDefault();
@@ -24,6 +43,7 @@ function LoginPage() {
         <input type="text" />
       </div>
       <div>
+      <p className="errormessage">{errormessage}</p>
         <label>Password</label>
         <input type="password" />
       </div>
