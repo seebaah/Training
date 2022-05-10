@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 var mysql = require('mysql');
+const cors=require('cors');
+app.use(cors());
 const port = 5050;
 app.use(express.json());
 var con = mysql.createConnection({
@@ -12,15 +14,40 @@ var con = mysql.createConnection({
 
 app.post('/addition', function (req, res) {
     // console.log(req, res);
-    var a = parseInt(req.body.numone);
-    var b = parseInt(req.body.numtwo);
-    var c = a + b;
-    res.send("Result=" + c);
+    // var a = parseInt(req.body.numone);
+    // var b = parseInt(req.body.numtwo);
+    // var c = a + b;
+    // res.send("Result=" + c);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "X-Requested-With,content-type"
+    );
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    // var a=req.body.numone;
+    res.send("Hello world");
+   
 
 })
 
 // Login
 app.post('/Uservalidate', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  // var a=req.body.numone;
+//   res.send("Hello world");
     var usrname = req.body.username;
     var passwrd = req.body.password;
     var usrtype = req.body.usertype;

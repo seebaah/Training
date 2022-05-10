@@ -1,36 +1,46 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const port = 8000;
+const cors = require('cors');
+app.use(cors());
+app.use(express.json());
 
-app.post('/', (req, res) => {
-  res.send('Hello World!')
-})
-app.post('/addition', (req, res) => {
-  var a=3;
-  var b=5;
-  var c=a+b;
+app.post("/addition", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  // var a=req.body.numone;
+  res.send("Hello world");
+});
 
-    res.send('Addition!'+c)
-  })
-  app.post('/subtraction', (req, res) => {
-    var a=5;
-    var b=4;
-    var c=a-b;
-    res.send('Subtraction!'+c)
-  })
-  app.post('/multiplication', (req, res) => {
-    var a=5;
-    var b=4;
-    var c=a*b;
-    res.send('Multiplication!'+c)
-  })
-  app.post('/division', (req, res) => {
-    var a=5;
-    var b=4;
-    var c=a/b;
-    res.send('Division!'+c)
-  })
+app.post("/subtraction", (req, res) => {
+  var firstNumber = req.body.numone;
+  var secondNumber = req.body.numtwo;
+  var result = firstNumber - secondNumber;
+  res.send("Result=" + result);
+});
+
+app.post("/multiplication", (req, res) => {
+  var firstNumber = req.body.numone;
+  var secondNumber = req.body.numtwo;
+  var result = firstNumber * secondNumber;
+  res.send("Result=" + result);
+});
+
+app.post("/division", (req, res) => {
+  var firstNumber = req.body.numone;
+  var secondNumber = req.body.numtwo;
+  var result = firstNumber / secondNumber;
+  res.send("Result=" + result);
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
