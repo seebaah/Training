@@ -1,9 +1,25 @@
-function LoginPage(){
-    return(
+import "./style.css";
+
+function LoginPage() {
+  return (
     <div>
-        Test
-        </div>)
-        
-    
+      <div class="container">
+        <div class="innerdiv">
+          <h2>Login</h2>
+          <form class="formelement">
+            <input type="text" placeholder="username" />
+            <br />
+            <br />
+            <input type="password" placeholder="password" />
+            <br />
+            <br />
+            <button>login</button>
+            <br />
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }
 export default LoginPage;
