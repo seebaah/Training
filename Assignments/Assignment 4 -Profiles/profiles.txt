@@ -1,0 +1,68 @@
+
+create database Profiles ;
+/*******************************************************************************************/
+create table tblCust (
+Cust_ProfileID int NOT NULL AUTO_INCREMENT,
+Cust_Name varchar(50),
+Cust_Gender varchar(50),
+Cust_Religion varchar(50),
+Cust_Caste 	varchar(50),
+Cust_City	varchar(50),
+Cust_Mobile int,
+Cust_EmailID	varchar(50),
+Cust_Login varchar(50),
+PRIMARY KEY(Cust_ProfileID) 
+) ;
+/*******************************************************************************************/
+INSERT INTO `Profiles`.`tblcust`(`Cust_Name`,`Cust_Gender`,`Cust_Religion`,`Cust_Caste`,`Cust_City`,`Cust_Mobile`,`Cust_EmailID`,
+`Cust_Login`)
+VALUES ('A','Male','QWE','IN','Kochi',12345,'AAA','aaa111'),
+('B','Female','AHJ','BB','Trivandrum',12347,'BB','bbb111'),
+('C','Female','QWE','CCC','Calicut',12349,'CCC','ccc222'),
+('D','Male','ZRK','DDD','Kannur',12351,'DDD','ddd333'),
+('E','Male','AHJ','IN','Kochi',12353,'EEE','eee444'),
+('F','Female','QWE','FFF','Trivandrum',12355,'FFF','fff555'),
+('G','Female','ZRK','IN','Kochi',12357,'GGG','ggg666') ;
+/*******************************************************************************************/
+-- Display all same 'caste / division'	
+SELECT Cust_Caste FROM tblCust WHERE Cust_Caste='IN' ;
+/*******************************************************************************************/
+-- Update City of Profile ID 5 with Kollam	
+UPDATE tblCust
+SET Cust_City='Kollam'
+WHERE Cust_ProfileID =5 ;
+/********************************************************************************************/
+-- Display all profile from city Kochi	
+
+SELECT Cust_Name,Cust_Gender,Cust_Religion,Cust_Caste,Cust_City,Cust_Mobile,Cust_EmailID, Cust_Login FROM tblCust WHERE Cust_City='Kochi' ;
+
+/********************************************************************************************************************************/
+
+-- Select all Male and Female with two statement
+	
+SELECT Cust_Religion,Cust_City FROM tblCust WHERE Cust_Gender IN('Male','Female'); 
+/********************************************************************************************/
+
+-- Update City Kannur with Calicut	
+UPDATE tblCust
+SET Cust_City='Calicut'
+WHERE Cust_City ='Kannur' ;
+/***********************************************************************************************************/
+
+-- Display Name, Gender, Religion name for all	
+SELECT Cust_Name,Cust_Gender,Cust_Religion FROM tblCust 
+;
+/*********************************************************************************************************/
+
+-- Display Name, Gender, Religion name for all with city as Kochi		
+SELECT Cust_Name,Cust_Gender,Cust_Religion FROM tblCust WHERE Cust_City='Kochi' ;
+;
+/**********************************************************************************************************/
+
+-- Insert three profile data on table
+
+INSERT INTO `profiles`.`tblcust`(`Cust_Name`,`Cust_Gender`,`Cust_Religion`,`Cust_Caste`,`Cust_City`,`Cust_Mobile`,`Cust_EmailID`)
+VALUES ('H','Male','FGH','MMM','Thrissur',12399,'gfh789'),
+('I','Female','GGH','NMN','Wayanad',12399,'hfg798'),
+('J','Female','GHH','MNM','Idukki',12100,'ffs876');	
+
