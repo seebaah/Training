@@ -1,5 +1,7 @@
 function Dashboard(){
-    return(<div>
+    return(
+    <div>
+        Test
         </div>)
         
     
