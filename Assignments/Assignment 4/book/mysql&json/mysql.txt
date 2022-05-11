@@ -1,0 +1,70 @@
+create database book;
+/*******************************************************************************************************************************/
+CREATE TABLE tblBook(
+id int not null auto_increment,
+title varchar(100),
+author varchar(100) null,
+published_date date null,
+primary key(id)
+);
+/*******************************************************************************************************************************/
+insert into tblBook (id,title,author,published_date)
+values(1010,'The Hobbit','Tolkien','1937-09-21'),
+(1011,'The Silmarillion','Tolkien','1977-09-15'),
+(1012,'The Name of the wind','Rothfuss','2007-03-27'),
+(1013,'The Wise Mans Fear','Rothfuss','2011-03-01'),
+(1016,'Advanced Pascal','Scribner','1958-04-25'),
+(1017,'Guide Network','Dover','1968-09-23'),
+(1018,'Sun Also Rises','Herringway','2001-05-13'),
+(1019,'Macbeth','Shakespeare','1963-06-08'),
+(1020,'Farewell to Anns','Herringway','1989-09-03'),
+(1022,'The odessey','Dover','1992-03-15'),
+(1024,'War and peace','Leo Tolstoy','2010-02-14');
+
+insert into tblBook (id,title,author)
+values(1014,'The doors of stone','Rothfuss'),
+(1023,'War and peace','Leo Tolstoy');
+insert into tblBook (id,title,published_date)
+values(1015,'Beowulf','1000-01-01'),
+(1021,'The llliad','1990-06-26');
+/*******************************************************************************************************************************/
+-- Q 1.We have some records in book table.Find NULL from multiple columns
+
+SELECT id,title FROM tblBook
+WHERE
+ author IS NULL OR
+ published_date IS NULL ;
+ /*******************************************************************************************************************************/
+-- Q 2.We have some records in the book table.Filter NULL from multiple columns
+
+/*******************************************************************************************************************************/
+-- Q 3.Select book published data between 08-06-1963 to 26-06-1990
+
+
+/*******************************************************************************************************************************/
+-- Q 4.Write query to return even number of rows
+
+SELECT id,title,author,published_date FROM tblBook WHERE mod(id,2)=0;
+/*******************************************************************************************************************************/
+-- Q 5.Select book title of the author Herringway And Dover by using case function
+
+SELECT 
+    id, title, author, published_date
+FROM
+    tblBook
+ORDER BY (CASE
+    WHEN author = 'Herringway' THEN 'Herringway'
+    WHEN author = 'Dover' THEN 'Dover'
+END) DESC
+LIMIT 4;
+
+-- OR
+
+-- SELECT 
+--     id, title, author, published_date
+-- FROM
+--     tblBook WHERE author='Herringway' OR author='Dover';
+/*******************************************************************************************************************************/
+
+
+

@@ -1,0 +1,22 @@
+create database studentx;
+
+/************************************************************************************************************************/
+create table tblStudent(
+id int not null auto_increment,
+Student_name varchar(50),
+Student_class varchar(10),
+Student_Total varchar(10),
+primary key(id)
+);
+
+/************************************************************************************************************************/
+-- Q1: Find whether a student has appeared total odd number of exam or even?				
+
+select id,Student_name,Student_Total, 
+case
+when mod(Student_Total,2)=0 then 'Even'
+when mod(Student_Total,2)!=0 then 'Odd'
+end evenodd
+from studentx.tblStudent;
+
+/************************************************************************************************************************/

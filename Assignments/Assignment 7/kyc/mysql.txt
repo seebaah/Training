@@ -1,0 +1,35 @@
+create database kyc;
+
+/*************************************************************************************************************/
+create table tblProfile(
+id int not null auto_increment,
+name varchar(50) null,
+gender varchar(10),
+age int,
+city varchar(50) null,
+primary key(id)
+);
+
+
+
+/*************************************************************************************************************/
+INSERT INTO `kyc`.`tblprofile`(`name`,`gender`,`age`,`city`)
+VALUES('John','Male',25,'London'),
+('Mary','Female',27,NULL),
+('James','Male',28,'London'),
+(NULL,'Male',28,NULL),
+('Anurag','Male',25,NULL),
+('Pranaya','Female',27,'Mumbai'),
+('Sambit','Male',28,'Mumbai');
+
+
+
+/*************************************************************************************************************/
+-- Replace with the text NA where the city column value is NULL by using COALESCE function
+
+SELECT 
+    id, name,gender,age, COALESCE(city, 'N/A')
+FROM
+    tblprofile;
+
+/*************************************************************************************************************/

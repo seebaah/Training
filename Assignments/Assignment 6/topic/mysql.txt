@@ -1,0 +1,14 @@
+create database tables;
+/*******************************************************************************************/
+
+create table tblTopic (
+id int not null auto_increment,
+topic varchar(50),
+primary key(id)
+);
+/*******************************************************************************************/
+-- Q.Divide 21 topics amongst 3 assignees such that 1st person gets 1,4,7,10,13,16,19 topics,2nd=2,5,8,11,14,17,20 and 3rd=3,6,9,12,15,18,21.Find the 3rd assignee's topics.
+
+SELECT  id,topic FROM tables.tblTopic WHERE mod(id,3)=0; 
+
+/*******************************************************************************************/
