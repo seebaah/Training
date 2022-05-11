@@ -2,6 +2,7 @@ import "./style.css";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {Reactsession} from react-client-session;
 
 function LoginPage() {
   const [username, setUserName] = useState("");
@@ -9,9 +10,13 @@ function LoginPage() {
   const [errormessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   function handleClick() {
+    // token pass
+    // var token=Reactsession.get("token")
     var req = { username: username, password: password };
     var url = "http://localhost:8000/Uservalidate";
-    var header = {};
+    // 
+    
+    // var header = {Authorization:`Bearer ${token}`};
     console.log(req);
     console.log(url);
     console.log(header);
@@ -22,7 +27,12 @@ function LoginPage() {
         console.log(res.data);
         if (res.data.length > 0) {
           setErrorMessage("Success");
+          Reactsession.set("username",username);
+          Reactsession.set("password",password);
+          Reactsession.set("Id",result[0].data);
           navigate("/dashboard");
+
+
         } else {
           setErrorMessage("Error in Username Or Password");
         }
