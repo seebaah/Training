@@ -4,22 +4,23 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-    const[username,SetUserName]=useState('');
-    const[password,SetPassword]=useState('');
+    const[username,setUserName]=useState('');
+    const[password,setPassword]=useState('');
+    const [errormessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-  function handleClick(e){
-      e.preventDefault();
+  function handleClick(){
+   
       var req={"username":username,"password":password};
-      var url="localhost:8000/Uservalidate"
+      var url="http://localhost:8000/Uservalidate"
       var header={};
-  }
+  
   axios
-      .post(url, request, header)
+      .post(url, req, header)
       .then((res) => {
         console.log(res.data);
         if (res.data.length > 0) {
           setErrorMessage("Success");
-          navigate('/dashboard')
+          navigate('/dashboard');
         } else {
           setErrorMessage("Error in Username Or Password");
         }
@@ -27,38 +28,40 @@ function LoginPage() {
       .catch((err) => {
         console.log(err);
       });
-  }
-  const newClick=()=>{
-    navigate('/signup')
-  }
-  function newclick(e) {
-    e.preventDefault();
-    navigate("/signup");
-  }
+  
+    }
+
+  
+ function newClick(){
+   navigate("/SignUp");
+ }
   return (
     <div>
       <h1>LOGIN</h1>
       <div>
         <label>Username</label>
-        <input type="text" />
+        <input
+          value={username}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+          type="text"
+        />
       </div>
       <div>
       <p className="errormessage">{errormessage}</p>
         <label>Password</label>
-        <input type="password" />
+        <input value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}type="password" />
       </div>
       <br />
 
-      <button onClick={(e)=>handleClick(e)}>LOGIN</button>
-      <p
-        onClick={(e) => {
-          newclick(e);
-        }}
-        className="link"
-      >
-        New User?
-      </p>
+      <button onClick={handleClick}>LOGIN</button>
+      <p onClick={newClick} className="newuser">NewUser?</p>
     </div>
   );
 }
+
 export default LoginPage;

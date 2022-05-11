@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function LoginPage(){
+function SignUp(){
     const[username,setUserName]=useState('');
     const[password,setPassword]=useState('');
     const[firstname,setFirstName]=useState('');
@@ -92,3 +92,4 @@ function insert(){
 
             </div>
         </div>
+        export default SignUp;
