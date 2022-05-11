@@ -11,14 +11,22 @@ var con = mysql.createConnection({
     password: "password",
     database: "test"
 });
+// con.connect(function (err) 
+// if (err) throw err;
+con.connect(function(err){
+if(err){ 
+    console.log(err);
+}else{
+    console.log("Connected");
+}
+});
 app.post('/Uservalidate', function (req, res) 
 {var usrname = req.body.username;
   var passwrd = req.body.password;
-    con.connect(function (err) 
-    {
+    
        
 
-        if (err) throw err;
+       
         var a="select id,txtUsername,txtPassword from tblusers where txtUsername='"+usrname+"' and txtPassword='"+passwrd+"';"
         con.query(a, function (err, result) 
         {
@@ -27,7 +35,7 @@ app.post('/Uservalidate', function (req, res)
             res.send(result);
         });
     });
-})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 }) 

@@ -1,26 +1,28 @@
 import "./style.css";
-import axios from 'axios';
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-    const[username,setUserName]=useState('');
-    const[password,setPassword]=useState('');
-    const [errormessage, setErrorMessage] = useState("");
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [errormessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-  function handleClick(){
-   
-      var req={"username":username,"password":password};
-      var url="http://localhost:8000/Uservalidate"
-      var header={};
-  
-  axios
+  function handleClick() {
+    var req = { username: username, password: password };
+    var url = "http://localhost:8000/Uservalidate";
+    var header = {};
+    console.log(req);
+    console.log(url);
+    console.log(header);
+
+    axios
       .post(url, req, header)
       .then((res) => {
         console.log(res.data);
         if (res.data.length > 0) {
           setErrorMessage("Success");
-          navigate('/dashboard');
+          navigate("/dashboard");
         } else {
           setErrorMessage("Error in Username Or Password");
         }
@@ -28,13 +30,11 @@ function LoginPage() {
       .catch((err) => {
         console.log(err);
       });
-  
-    }
+  }
 
-  
- function newClick(){
-   navigate("/SignUp");
- }
+  function newClick() {
+    navigate("/SignUp");
+  }
   return (
     <div>
       <h1>LOGIN</h1>
@@ -49,17 +49,22 @@ function LoginPage() {
         />
       </div>
       <div>
-      <p className="errormessage">{errormessage}</p>
+        <p className="errormessage">{errormessage}</p>
         <label>Password</label>
-        <input value={password}
+        <input
+          value={password}
           onChange={(e) => {
             setPassword(e.target.value);
-          }}type="password" />
+          }}
+          type="password"
+        />
       </div>
       <br />
 
       <button onClick={handleClick}>LOGIN</button>
-      <p onClick={newClick} className="newuser">NewUser?</p>
+      <p onClick={newClick} className="newuser">
+        NewUser?
+      </p>
     </div>
   );
 }
