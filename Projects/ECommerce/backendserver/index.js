@@ -1,16 +1,35 @@
-const express = require(express);
+const express = require('express');
 const app = express();
-var mysql = require("mysql");
-const cors = require(cors);
+const cors = require('cors');
+const mysql=require('mysql');
 app.use(cors());
-const port = 8000;
 app.use(express.json());
+const res=require('express/lib/response');
+var jwt = require('jsonwebtoken');
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "test",
+  database: "test"
 });
+
+function verifyToken(req,res,next){
+  const bearerHeader=req.headers["authorization"];
+  if(typeof bearerHeader!=="undefined"){
+    const bearerToken=bearerHeader.split("")[1];
+    jwt.verify(bearerToken,"secretkey",(err,authData)=>{
+      if(err)
+      res.sendStatus(403)
+      else{
+        next();
+      }
+    })
+
+  }else{
+    res.sendStatus(403);
+  }
+}
+// Login
 con.connect(function (err) {
   if (err) {
     console.log(err);
@@ -19,24 +38,39 @@ con.connect(function (err) {
   }
 });
 
-// Login
 app.post("/Uservalidate", function (req, res) {
   var usrname = req.body.username;
   var passwrd = req.body.password;
 
   var a =
-    "select id,txtUsername,txtPassword from tblusers where txtUsername='" +
-    usrname +
-    "' and txtPassword='" +
-    passwrd +
-    "';";
-  con.query(a, function (err, result) {
+    "select id,txtUsername,txtPassword from tblusers where txtUsername='" +usrname +"' and txtPassword='" +passwrd +"';";
+  con.query(a, function (err,result) {
     if (err) throw err;
-    console.log("Result!");
     res.send(result);
+    
+if(result.length>0){
+  const user=result[0];
+  jwt.sign({user:user},"secret key",(err,token)=>{
+    if(err)
+    res.send(err)
+    else{
+    res.json({token:token})
+  
+}
+})
+}else{
+  res.json({"token":""});
+
+
+}
+ 
+   
   });
+  
+
 });
 
+  
 // Signup
 
 app.post("/Countryfetch", function (req, res) {
@@ -197,6 +231,6 @@ app.post("/Updateuser", function (req, res) {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(8000, () => {
+  console.log(`Example app listening on port 8000`);
 });

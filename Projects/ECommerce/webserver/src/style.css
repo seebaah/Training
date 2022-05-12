@@ -5,3 +5,48 @@
 .link:hover{
     color: red;
 }
+.header{
+    background-color: gray;
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right:10px;
+}
+.bodypart{
+    width: 100%;
+}
+.bodypart .menu{
+    background-color: gray;
+    width: 20%;
+    float: left;
+    height: 100vh;
+}
+.bodypart .content{
+    background-color: white;
+    width: 80%;
+    float: left;
+}
+.bodypart .content table{
+    width: 80%;
+    margin-left: 10%;
+    border-collapse: collapse;
+    margin-top: 25px; 
+}
+.bodypart .content th, td{
+    border: 1px solid gray;
+}
+.bodypart .content h1{
+    margin-left: 25px;
+}
+
+.bodypart .menu {
+    list-style-type: none;
+}
+.bodypart .menu li{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.bodypart .menu li:hover{
+    background-color: blue;
+    color: white;
+}

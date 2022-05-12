@@ -11,12 +11,12 @@ function LoginPage() {
   const navigate = useNavigate();
   function handleClick() {
     // token pass
-    // var token=Reactsession.get("token")
+    var token=Reactsession.get("token")
     var req = { username: username, password: password };
     var url = "http://localhost:8000/Uservalidate";
     // 
     
-    // var header = {Authorization:`Bearer ${token}`};
+    var header = {Authorization:`Bearer ${token}`};
     console.log(req);
     console.log(url);
     console.log(header);
